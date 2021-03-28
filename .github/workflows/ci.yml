@@ -12,9 +12,7 @@ jobs:
     steps:
     # This checkouts the repo, otherwise folder will be empty
     - uses: actions/checkout@v1
-    # Checking stuff
-    - name: Just checking some stuff
-      run: ls -laR
-    - name: Update the date
-      run: ./script.sh
+    # Running my script. Make sure it's executable (chmod +x ./.github/script.sh)
+    - name: Run the script
+      run: ./.github/script.sh
 

@@ -16,4 +16,4 @@ new_date=$(date +%Y-%m-%d,%H:%M:%S)
 
 # Update the file
 echo $new_date > $new_path
-echo "Updated date on $new_path to $new_date"
+echo "Updated date for $GITHUB_REPOSITORY on $new_path to $new_date"

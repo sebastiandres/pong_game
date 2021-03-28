@@ -3,7 +3,7 @@ name: DATE upDATE
 # Run every 15 minutes starting at 0
 on: 
   schedule:
-    - cron: '0/15 * * * *'
+    - cron: '0/5 * * * *'
 
 jobs:
   build:
@@ -12,4 +12,4 @@ jobs:
     
     steps:
     - name: Update the date
-      run: ./script.sh
+      run: {$GITHUB_WORKSPACE}/.github/script.sh

@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    - name: Just checking some stuff
+      run: ls -laR
     - name: Update the date
       run: ./script.sh
 

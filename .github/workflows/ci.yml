@@ -12,4 +12,4 @@ jobs:
     
     steps:
     - name: Update the date
-      run: {$GITHUB_WORKSPACE}/.github/script.sh
+      run: .github/script.sh

@@ -1,0 +1,14 @@
+name: DATE upDATE
+
+on: 
+  schedule:
+    - cron: '0/15 * * * *'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Update the date
+      run: ./script.sh

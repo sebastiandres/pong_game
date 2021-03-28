@@ -11,7 +11,9 @@ jobs:
     
     steps:
     - name: Just checking some stuff
-      run: ls -laR
+      run: cd ..; ls -laR
+    - name: Just checking some stuff 2
+      run: pwd
     - name: Update the date
       run: ./script.sh
 

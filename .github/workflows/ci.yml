@@ -12,5 +12,5 @@ jobs:
     
     steps:
     - name: Update the date
-      run: script.sh
+      run: ./script.sh
 

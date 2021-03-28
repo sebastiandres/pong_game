@@ -1,5 +1,6 @@
 name: DATE upDATE
 
+# Run every 15 minutes starting at 0
 on: 
   schedule:
     - cron: '0/15 * * * *'

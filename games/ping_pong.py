@@ -25,8 +25,9 @@ def run():
     
     # Play the game
     print("Date: ", date)
-    TABLE_LENGTH = 25
-    N_PLAYS = 3
+    TABLE_LENGTH = 100
+    N_PLAYS = 5
+    PLAY_TIME = 0.5
     for play in range(N_PLAYS):
         for position in range(TABLE_LENGTH):
             if play % 2 == 0:
@@ -36,4 +37,5 @@ def run():
                 left_spaces = " " * (TABLE_LENGTH - position)
                 right_spaces = " " * position
             print(f'|{left_spaces}{ball}{right_spaces}|', end='\r')
-            time.sleep(.05)
+            time.sleep(PLAY_TIME/TABLE_LENGTH)
+    print("\n") # Get a new clean line

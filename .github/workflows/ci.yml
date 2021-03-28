@@ -11,8 +11,15 @@ jobs:
     
     steps:
     # This checkouts the repo, otherwise folder will be empty
-    - uses: actions/checkout@v1
+    # Use the version 2 so you can push back the changes
+    - uses: actions/checkout@v2
     # Running my script. Make sure it's executable (chmod +x ./.github/script.sh)
     - name: Run the script
       run: ./.github/script.sh
-
+    # Commit the changes
+    - name: Commit changes
+      run: |
+        git config --global user.name 'Sebastian Flores'
+        git config --global user.email 'sebastiandres@users.noreply.github.com'
+        git commit -am "Updating the date with github actions"
+        git push

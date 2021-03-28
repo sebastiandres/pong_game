@@ -10,10 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    # This checkouts the repo, otherwise folder will be empty
+    - uses: actions/checkout@v1
+    # Checking stuff
     - name: Just checking some stuff
-      run: cd ..; ls -laR
-    - name: Just checking some stuff 2
-      run: pwd
+      run: ls -laR
     - name: Update the date
       run: ./script.sh
 

@@ -25,9 +25,9 @@ def run():
     
     # Play the game
     print("Date: ", date)
-    TABLE_LENGTH = 100
+    TABLE_LENGTH = 50
     N_PLAYS = 5
-    PLAY_TIME = 0.5
+    PLAY_TIME = 1.0
     for play in range(N_PLAYS):
         for position in range(TABLE_LENGTH):
             if play % 2 == 0:

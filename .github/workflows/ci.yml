@@ -1,25 +1,34 @@
-name: DATE upDATE
+name: CI
 
-# Run every 15 minutes starting at 0
-on: 
-  workflow_dispatch:
+on:
+  push:
+    branches: master
+  pull_request:
+    branches: master
 
 jobs:
-  build:
-
+  checks:
+    name: Checks
     runs-on: ubuntu-latest
-    
+    strategy:
+      matrix:
+        python-version: [3.6, 3.8]
+
     steps:
-    # This checkouts the repo, otherwise folder will be empty
-    # Use the version 2 so you can push back the changes
-    - uses: actions/checkout@v2
-    # Running my script. Make sure it's executable (chmod +x ./.github/script.sh)
-    - name: Run the script
-      run: ./.github/script.sh
-    # Commit the changes
-    - name: Commit changes
-      run: |
-        git config --global user.name 'Sebastian Flores'
-        git config --global user.email 'sebastiandres@users.noreply.github.com'
-        git commit -am "Updating the date with github actions"
-        git push
+
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Upgrade pip
+      run: python -m pip install --upgrade pip
+
+    - name: Install dependencies
+      run: python -m pip install -r requirements.txt
+
+    - name: Linting
+      run: flake8 .

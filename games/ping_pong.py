@@ -50,7 +50,7 @@ def create_gif(date, ball, gif_path, font_path):
             images.append(frame)
 
     # Save the frames as an animated GIF with given name
-    #print(gif_path)
+    print(gif_path)
     images[0].save(gif_path,
                 save_all=True,
                 append_images=images[1:],
@@ -59,7 +59,7 @@ def create_gif(date, ball, gif_path, font_path):
 
     # Save the frames as an animated GIF as latest.gif
     latest_gif_path = "/".join(gif_path.split("/")[:-1])+"/latest.gif" 
-    #print(latest_gif_path)
+    print(latest_gif_path)
     images[0].save(latest_gif_path,
                 save_all=True,
                 append_images=images[1:],

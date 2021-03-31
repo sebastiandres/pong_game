@@ -5,7 +5,7 @@ Este es un repo automatizado para aceptar o rechazar tu pull request,
 perfecto para cometer errores y aprender. Nadie te juzgará. ¡Atrévete!
 
 # Misión
-Agregar un nuevo archivo en `balls/' que contenga sólo un caracter o emoji.
+Agregar un nuevo archivo en `balls/` que contenga sólo un caracter o emoji.
 Eso hará que se genere un nuevo gif con el mismo nombre en la carpeta `gifs`. 
 El gif más recientemente generado se llamará `gifs/latest.gif` y siempre se mostrará a continuación:
 

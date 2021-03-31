@@ -11,6 +11,7 @@ jobs:
     steps:
     # This checkouts the repo, otherwise folder will be empty
     # Use the version 2 so you can push back the changes
+    - name: Download the repo
     - uses: actions/checkout@v2
 
     # Running my script. Make sure it's executable (chmod +x ./.github/script.sh)

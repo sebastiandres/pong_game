@@ -6,9 +6,10 @@ perfecto para cometer errores y aprender. Nadie te juzgará. ¡Atrévete!
 
 # Misión
 Agregar un nuevo archivo en `balls/' que contenga sólo un caracter o emoji.
-Eso hará que pueda "jugarse" un partido de ping pong con una nueva pelota.
+Eso hará que se genere un nuevo gif con el mismo nombre en la carpeta `gifs`. 
+El gif más recientemente generado se llamará `gifs/latest.gif` y siempre se mostrará a continuación:
 
-[GIF]
+<img src="gifs/latest.gif">
 
 # Requisitos
 Debes tener instalado en tu computadora como mínimo:
@@ -63,3 +64,9 @@ Octavo paso: Celebrar
 [GIF] Michael Jackson
 Comandos: No tiene
 Comentario técnico: Cuidar el equilibrio. Acá para un tutorial.
+
+
+Recursos:
+* https://www.pythoninformer.com/python-libraries/pillow/creating-animated-gif/
+* https://stackoverflow.com/questions/17353619/rendering-emoji-with-pil
+* Symbola font: https://github.com/gearit/ttf-symbola

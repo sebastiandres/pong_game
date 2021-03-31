@@ -10,8 +10,5 @@ new_date=$(date +%Y-%m-%d,%H:%M:%S)
 echo $new_date > $new_path
 echo "Updated date for $GITHUB_REPOSITORY on $new_path to $new_date"
 
-# Run the program
-python main.py
-
 # Check answer
 cat $new_path

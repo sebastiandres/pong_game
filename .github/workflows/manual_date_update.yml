@@ -1,6 +1,5 @@
 name: DATE upDATE
 
-# Run every 15 minutes starting at 0
 on: 
   workflow_dispatch:
 
@@ -13,9 +12,20 @@ jobs:
     # This checkouts the repo, otherwise folder will be empty
     # Use the version 2 so you can push back the changes
     - uses: actions/checkout@v2
+
     # Running my script. Make sure it's executable (chmod +x ./.github/script.sh)
-    - name: Run the script
+    - name: Run the script (update the date)
       run: ./.github/script.sh
+
+    - name: Upgrade pip
+      run: python -m pip install --upgrade pip
+
+    - name: Install dependencies
+      run: python -m pip install -r requirements.txt
+
+    - name: Run the program
+      run: python main.py
+
     # Commit the changes
     - name: Commit changes
       run: |

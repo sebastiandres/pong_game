@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PR_NUMBER: ${{ github.event.number }}    
+      TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
     - uses: actions/checkout@v2
@@ -16,6 +17,6 @@ jobs:
     - name: Repo
       run: echo "$GITHUB_REPOSITORY"
     - name: Pull request number
-      run: echo ${{ PR_NUMBER }}
+      run: echo "$PR_NUMBER"
     - name: Token
-      run: echo ${{ secrets.GITHUB_TOKEN }}
+      run: echo "$TOKEN"

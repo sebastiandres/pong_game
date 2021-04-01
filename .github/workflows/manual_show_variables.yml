@@ -1,5 +1,5 @@
 # https://docs.github.com/es/actions/reference/environment-variables
-name: manually print arguments
+name: manually display arguments
 on: 
   workflow_dispatch:
 
@@ -10,6 +10,7 @@ jobs:
     env:
       TEST: 42
       PR_NUMBER: ${{ github.event.pull_request.number }}    
+      REPO: ${{ GITHUN_REPOSITORY }}
       TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
@@ -24,4 +25,4 @@ jobs:
     - name: Token
       run: echo "TOKEN $TOKEN"
     - name: Run python
-      run: python .github/print_all_args.py "$GITHUB_REPOSITORY" "$TEST" "$PR_NUMBER" "$TOKEN"
+      run: python .github/print_all_args.py "$REPO" "$TEST" "$PR_NUMBER" "$TOKEN"

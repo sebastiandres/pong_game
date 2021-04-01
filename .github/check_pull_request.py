@@ -37,11 +37,11 @@ if len(sys.argv)==5:
     #   python check_pull_request.py PR_NUMBER ${{ secrets.GITHUB_TOKEN }} $GITHUB_USER $GITHUB_REPOSITORY 
     REPO = sys.argv[1]
     PR_NUMBER = sys.argv[2]
-    TOKEN = sys.argv[2]
+    TOKEN = sys.argv[3]
 else:
     REPO = "sebastiandres/pull_request_training_repo"
     PR_NUMBER = 1 # This will change
-    TOKEN = "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" #Personal Access Token
+    TOKEN = "" #Personal Access Token
 
 ################################################################################
 # Checking the branch

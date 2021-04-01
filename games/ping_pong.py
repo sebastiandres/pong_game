@@ -32,7 +32,8 @@ def create_gif(date, ball, gif_path, font_path):
     # Create the individual frames as png images
     im = Image.new("RGB", (WIDTH, HEIGHT), 'white')
     images = []
-    unicode_font = ImageFont.truetype(font_path, 30)
+    small_font = ImageFont.truetype(font_path, 20)
+    big_font = ImageFont.truetype(font_path, 30)
 
     for play in range(N_PLAYS):
         for position in range(1, n_positions-1):
@@ -43,10 +44,10 @@ def create_gif(date, ball, gif_path, font_path):
                 left_spaces = WIDTH - position
             frame = im.copy()
             d = ImageDraw.Draw(frame)
-            draw_centered(d, date_x, date_y, date, unicode_font, (150,150,150))
-            draw_centered(d, ping_x, ping_y, "|", unicode_font, "red")
-            draw_centered(d, left_spaces, ping_y, ball, unicode_font, "black")
-            draw_centered(d, pong_x, pong_y, "|", unicode_font, "red")
+            draw_centered(d, date_x, date_y, date, small_font, (150,150,150))
+            draw_centered(d, ping_x, ping_y, "|", big_font, "red")
+            draw_centered(d, left_spaces, ping_y, ball, big_font, "black")
+            draw_centered(d, pong_x, pong_y, "|", big_font, "red")
             images.append(frame)
 
     # Save the frames as an animated GIF with given name
@@ -66,16 +67,14 @@ def create_gif(date, ball, gif_path, font_path):
                 duration=100,
                 loop=0)
 
-def run():
+def run(ball_path):
     # Get a reliable path for reading the files
     file_path = dirname(realpath(__file__)) 
     main_path = join_path(file_path, "..") 
 
     # See if a given file has been given
-    if len(sys.argv)==2:
-        ball_path = realpath(sys.argv[1])
-    else:
-        ball_path = join_path(main_path, "balls/simplest.txt")
+    ball_path = join_path(main_path, ball_path)
+    print(ball_path)
 
     # Get the ball
     with open(ball_path) as f:

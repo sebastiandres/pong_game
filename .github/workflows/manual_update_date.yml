@@ -1,4 +1,4 @@
-name: DATE upDATE
+name: Manual gif and date update
 
 on: 
   workflow_dispatch:
@@ -7,33 +7,26 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    env:
-      # For debugging purposes
-      PR_NUMBER: 1
-      REPO: $${ GITHUB_REPOSITORY}
-      TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
     steps:
     # This checkouts the repo, otherwise folder will be empty
     # Use the version 2 so you can push back the changes
     - uses: actions/checkout@v2
 
+    # Running my script. Make sure it's executable (chmod +x ./.github/script.sh)
     - name: Upgrade pip
       run: python -m pip install --upgrade pip
 
     - name: Install dependencies
       run: python -m pip install -r requirements.txt
 
-    - name: Run the program
-      run: python .github/check_pull_requests.py REPO PR_NUMBER TOKEN
-
-    - name: Run the program
-      run: python main.py
+    - name: Run the update script
+      run: python .github/date_update.py "octocat"
 
     # Commit the changes
     - name: Commit changes
       run: |
         git config --global user.name 'Sebastian Flores'
         git config --global user.email 'sebastiandres@users.noreply.github.com'
-        git commit -am "Automated commit from Github Actions through file manual_check_pull_requests.yml"
+        git commit -am "Automated commit from Github Actions through file manual_update_date.yml"
         git push

@@ -16,13 +16,13 @@ jobs:
     steps:
     # This checkouts the repo, otherwise folder will be empty
     - uses: actions/checkout@v2
-    - name: Repo
+    - name: Shows the value for variable GITHUB_REPOSITORY
       run: echo "GITHUB_REPOSITORY $GITHUB_REPOSITORY"
-    - name: Test env variables
+    - name: Shows the value for variable TEST
       run: echo "TEST $TEST"
-    - name: Pull request number
+    - name: Shows the value for variable PR_NUMBER (Pull Request number)
       run: echo "PR_NUMBER $PR_NUMBER"
-    - name: Token
+    - name: Shows the value for variable TOKEN (Actually, it's not shown, but exists)
       run: echo "TOKEN $TOKEN"
-    - name: Run python
+    - name: Run python scripts that prints the arguments
       run: python .github/print_all_args.py "$REPO" "$TEST" "$PR_NUMBER" "$TOKEN"

@@ -1,4 +1,4 @@
-name: Manual gif and date update
+name: manually update date and gif
 
 on: 
   workflow_dispatch:
@@ -22,6 +22,9 @@ jobs:
 
     - name: Run the update script
       run: python date/date_update.py "octocat"
+
+    - name: Run the update script
+      run: python main.py "octocat" balls/simplest.txt
 
     # Commit the changes
     - name: Commit changes

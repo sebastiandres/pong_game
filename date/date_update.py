@@ -8,7 +8,7 @@ def get_message_string(user):
     now = datetime.now()
     day_string = now.strftime("%d/%m/%Y")
     hour_string = now.strftime("%H:%M:%S")
-    message = now.strftime(f"Actualizado por {user} a las %{hour_string} del {day_string}\n")
+    message = now.strftime(f"Actualizado por {user} a las {hour_string} del {day_string}\n")
     print(message)
     return message
 

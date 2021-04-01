@@ -1,0 +1,24 @@
+name: Manual Execution
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    env:
+      PR_NUMBER: ${{ github.event.number }}    
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: User
+      run: echo ${{ GITHUB_USER }}
+    - name: Repo
+      run: echo ${{ GITHUB_REPOSITORY }}
+    - name: Token
+      run: echo ${{ secrets.GITHUB_TOKEN }}
+    - name: Pull request number
+      run: echo ${{ PR_NUMBER }}
+

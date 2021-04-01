@@ -8,6 +8,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
+      TEST: 7
       PR_NUMBER: ${{ github.event.pull_request.number }}    
       TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -16,6 +17,8 @@ jobs:
 
     - name: Repo
       run: echo "$GITHUB_REPOSITORY"
+    - name: Test env variables
+      run: echo "$TEST"
     - name: Pull request number
       run: echo "$PR_NUMBER"
     - name: Token

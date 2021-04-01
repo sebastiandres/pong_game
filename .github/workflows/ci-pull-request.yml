@@ -1,12 +1,16 @@
-name: DATE upDATE
+name: ci-pull-request
 
 on: 
-  workflow_dispatch:
+  pull_request:
+    branches: main
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
+    env:
+      PR_NUMBER: ${{ github.event.pull_request.number }}    
+      TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
     steps:
     # This checkouts the repo, otherwise folder will be empty
@@ -14,9 +18,6 @@ jobs:
     - uses: actions/checkout@v2
 
     # Running my script. Make sure it's executable (chmod +x ./.github/script.sh)
-    - name: Run the script (update the date)
-      run: ./.github/script.sh
-
     - name: Upgrade pip
       run: python -m pip install --upgrade pip
 
@@ -24,7 +25,13 @@ jobs:
       run: python -m pip install -r requirements.txt
 
     - name: Run the program
+      run: python .github/check_pull_requests.py
+
+    - name: Run the program
       run: python main.py
+
+    - name: Linting
+      run: flake8 .
 
     # Commit the changes
     - name: Commit changes

@@ -1,5 +1,5 @@
 # https://docs.github.com/es/actions/reference/environment-variables
-name: CI
+name: manual show variables
 on: 
   workflow_dispatch:
 
@@ -8,13 +8,11 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      TEST: 7
+      TEST: 42
       PR_NUMBER: ${{ github.event.pull_request.number }}    
       TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
-    - uses: actions/checkout@v2
-
     - name: Repo
       run: echo "$GITHUB_REPOSITORY"
     - name: Test env variables

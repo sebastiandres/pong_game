@@ -13,6 +13,8 @@ jobs:
       TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
+    # This checkouts the repo, otherwise folder will be empty
+    - uses: actions/checkout@v2
     - name: Repo
       run: echo "$GITHUB_REPOSITORY"
     - name: Test env variables

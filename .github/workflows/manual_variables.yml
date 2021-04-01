@@ -4,8 +4,18 @@ on:
   workflow_dispatch:
 
 jobs:
-  prod-check:
-    if: ${{ github.ref == 'refs/heads/main' }}
+  build:
+
     runs-on: ubuntu-latest
+    env:
+      PR_NUMBER: ${{ github.event.number }}    
+
     steps:
-      - run: echo "GITHUB_REPOSITORY $GITHUB_REPOSITORY"
+    - uses: actions/checkout@v2
+
+    - name: Repo
+      run: echo "$GITHUB_REPOSITORY"
+    - name: Pull request number
+      run: echo ${{ PR_NUMBER }}
+    - name: Token
+      run: echo ${{ secrets.GITHUB_TOKEN }}

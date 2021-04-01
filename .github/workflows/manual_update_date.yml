@@ -21,7 +21,7 @@ jobs:
       run: python -m pip install -r requirements.txt
 
     - name: Run the update script
-      run: python .github/date_update.py "octocat"
+      run: python date/date_update.py "octocat"
 
     # Commit the changes
     - name: Commit changes

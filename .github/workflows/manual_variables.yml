@@ -1,20 +1,9 @@
-name: Manual Execution
-
-on: 
-  workflow_dispatch:
-
+# https://docs.github.com/es/actions/reference/environment-variables
+name: CI
+on: push
 jobs:
-  build:
-
+  prod-check:
+    if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
-    env:
-      PR_NUMBER: ${{ github.event.number }}    
-
     steps:
-    - uses: actions/checkout@v2
-
-    - name: Token
-      run: echo ${{ secrets.GITHUB_TOKEN }}
-    - name: Pull request number
-      run: echo ${{ PR_NUMBER }}
-
+      - run: echo "Deploying to production server on branch $GITHUB_REF"

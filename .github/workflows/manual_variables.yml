@@ -13,8 +13,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: User
-      run: echo ${{ GITHUB_USER }}
     - name: Repo
       run: echo ${{ GITHUB_REPOSITORY }}
     - name: Token

@@ -1,5 +1,5 @@
 # https://docs.github.com/es/actions/reference/environment-variables
-name: manual execution - show variables
+name: manually show variables
 on: 
   workflow_dispatch:
 

@@ -23,3 +23,5 @@ jobs:
       run: echo "$PR_NUMBER"
     - name: Token
       run: echo "$TOKEN"
+    - name: Run python
+      run: python .github/print_all_args.py "$GITHUB_REPOSITORY" "TEST" "$PR_NUMBER" "$TOKEN"

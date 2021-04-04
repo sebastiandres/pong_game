@@ -8,15 +8,15 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      REPO: ${{ GITHUB_REPOSITORY }}
+      REPO: ${{ github.repository }}
       PR_NUMBER: ${{ github.event.pull_request.number }}    
       TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
     # This checkouts the repo, otherwise folder will be empty
     - uses: actions/checkout@v2
-    - name: Shows the value for variable GITHUB_REPOSITORY
-      run: echo "GITHUB_REPOSITORY $GITHUB_REPOSITORY"
+    - name: Shows the value for variable REPO
+      run: echo "REPO $REPO"
     - name: Shows the value for variable PR_NUMBER (Pull Request number)
       run: echo "PR_NUMBER $PR_NUMBER"
     - name: Shows the value for variable TOKEN (Actually, it's not shown, but exists)

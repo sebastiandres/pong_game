@@ -32,9 +32,9 @@ def download_json(api_url, my_token, json_file, debug=False):
     return
 
 # Config - Most likely this will be dynamic parameters
-if len(sys.argv)==5:
+if len(sys.argv)==4:
     # Use it as in:
-    #   python check_pull_request.py PR_NUMBER ${{ secrets.GITHUB_TOKEN }} $GITHUB_USER $GITHUB_REPOSITORY 
+    #   python check_pull_request.py PR_NUMBER ${{ secrets.GITHUB_TOKEN }} 
     REPO = sys.argv[1]
     PR_NUMBER = sys.argv[2]
     TOKEN = sys.argv[3]
@@ -42,6 +42,8 @@ else:
     REPO = "sebastiandres/pull_request_training_repo"
     PR_NUMBER = 1 # This will change
     TOKEN = "" #Personal Access Token
+print(f"REPO {REPO}")
+print(f"PR_NUMBER {PR_NUMBER}")
 
 ################################################################################
 # Checking the branch

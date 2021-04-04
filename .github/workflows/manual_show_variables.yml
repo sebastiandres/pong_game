@@ -10,7 +10,7 @@ jobs:
     env:
       TEST: 42
       PR_NUMBER: ${{ github.event.pull_request.number }}    
-      REPO: ${{ GITHUN_REPOSITORY }}
+      REPO: ${{ GITHUB_REPOSITORY }}
       TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:

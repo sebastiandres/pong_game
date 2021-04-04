@@ -25,7 +25,7 @@ jobs:
       run: python -m pip install -r requirements.txt
 
     - name: Run the program
-      run: python .github/check_pull_requests.py
+      run: python .github/check_pull_request.py
 
     - name: Run the program
       run: python main.py
@@ -36,7 +36,7 @@ jobs:
     # Commit the changes
     - name: Commit changes
       run: |
-        git config --global user.name 'Sebastian Flores'
+        git config --global user.name 'Auto-Pull-Request'
         git config --global user.email 'sebastiandres@users.noreply.github.com'
-        git commit -am "Updating the date with github actions"
+        git commit -am "Merging pull request with github actions"
         git push

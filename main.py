@@ -2,8 +2,8 @@ from games import ping_pong
 from date import date_update
 import sys
 
-if __name__=="__main__":
-    if len(sys.argv)==3:
+if __name__ == "__main__":
+    if len(sys.argv) == 3:
         user = sys.argv[1]
         ball_path = sys.argv[2]
     else:

@@ -35,9 +35,9 @@ jobs:
       run: python main.py
 
     # Commit the changes
-    - name: If everything looks good, commit changes
-      run: |
-        git config --global user.name 'Auto-Pull-Request'
-        git config --global user.email 'sebastiandres@users.noreply.github.com'
-        git commit -am "Merging pull request with github actions"
-        git push
+    #- name: If everything looks good, commit changes
+    #  run: |
+    #    git config --global user.name 'Auto-Pull-Request'
+    #    git config --global user.email 'sebastiandres@users.noreply.github.com'
+    #    git commit -am "Merging pull request with github actions"
+    #    git push
